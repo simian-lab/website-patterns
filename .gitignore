@@ -14,3 +14,4 @@ patternlab.json
 .sass-cache/*
 /sass-cache
 source/images/Thumbs.db
+source/.sass-cache

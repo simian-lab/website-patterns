@@ -17,11 +17,21 @@ module.exports = function(grunt) {
 				dest: './builder/patternlab.js'
 			}
 		},
+		connect: {
+	    server: {
+	      options: {
+	        port: 9001,
+					base: 'public'
+	      }
+	    }
+	  },
 		copy: {
 			main: {
 				files: [
 					{ expand: true, cwd: './source/js/', src: '*', dest: './public/js/'},
 					{ expand: true, cwd: './source/css/', src: 'style.css', dest: './public/css/' },
+					{ expand: true, cwd: './source/css/', src: 'style.scss', dest: './public/css/' },
+					{ expand: true, cwd: './source/css/', src: 'style.css.map', dest: './public/css/' },
 					{ expand: true, cwd: './source/images/', src: ['*.png', '*.jpg', '*.gif', '*.jpeg'], dest: './public/images/' },
 					{ expand: true, cwd: './source/images/sample/', src: ['*.png', '*.jpg', '*.gif', '*.jpeg'], dest: './public/images/sample/'},
 					{ expand: true, cwd: './source/fonts/', src: '*', dest: './public/fonts/'},
@@ -42,10 +52,10 @@ module.exports = function(grunt) {
 			patternlab: ['Gruntfile.js', './builder/lib/patternlab.js']
 		},
 		watch: {
-			// scss: { //scss can be watched if you like
-			// 	files: ['source/css/**/*.scss', 'public/styleguide/css/*.scss'],
-			// 	tasks: ['default']
-			// },
+			scss: { //scss can be watched if you like
+				files: ['source/css/**/*.scss', 'public/styleguide/css/*.scss'],
+				tasks: ['default']
+			},
 			mustache: {
 				files: ['source/_patterns/**/*.mustache'],
 				tasks: ['default']
@@ -62,7 +72,7 @@ module.exports = function(grunt) {
 					precision: 8
 				},
 				files: {
-					'./source/css/style.css': './source/css/style.scss',
+					//'./source/css/style.css': './source/css/style.scss',
 					'./public/styleguide/css/static.css': './public/styleguide/css/static.scss',
 					'./public/styleguide/css/styleguide.css': './public/styleguide/css/styleguide.scss'
 				}
@@ -83,8 +93,10 @@ module.exports = function(grunt) {
 	//load the patternlab task
 	grunt.task.loadTasks('./builder/');
 
+	grunt.registerTask('server', ['connect', 'watch']);
+
 	//if you choose to use scss, or any preprocessor, you can add it here
-	grunt.registerTask('default', ['clean', 'concat', 'patternlab', /*'sass',*/ 'copy']);
+	grunt.registerTask('default', ['clean', 'concat', 'patternlab', 'sass', 'copy']);
 
 	//travis CI task
 	grunt.registerTask('travis', ['clean', 'concat', 'patternlab', /*'sass',*/ 'copy', 'qunit'])
