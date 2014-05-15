@@ -3,13 +3,19 @@
 \*------------------------------------*/
 
 //Colors
+
+// Main Colors
+$blue: #239392;
+$brown: #4F4138;
+$green: #96B60B;
+$gray-dark : #333;
+
 $gray : #808080;
 $gray-light : #f9f9f9;
 $gray-light-2 : #eee;
 $gray-light-3 : #ddd;
 $gray-light-4 : #bbb;
 $gray-med : #666;
-$gray-dark : #333;
 $gray-dark-2 : #131313;
 $white : #fff;
 $black : #000;
@@ -25,8 +31,9 @@ $brand-twitter: #35ccff;
 $brand-linkedin: #217bc1;
 
 //Typography
-$font :  "Bree Serif", Georgia, Times, "Times New Roman", serif;
-$font-secondary : "Roboto Condensed", Helvetica, Arial, serif;
+$font :  Georgia, serif;
+$font-secondary : 'Roboto Condensed', Helvetica, Arial, serif;
+$font-tertiary: 'Bree Serif', Times, 'Times New Roman', serif;
 
 $font-size-norm : 1em;
 $font-size-slightly-larger : 1.0625em;

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 
 */
@@ -35,7 +36,7 @@
 /* CSS Transition
 	Usage: @include transition(width,0.3s,ease-out);
  */
-/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback  
+/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback
 	Usage: @include font-size(1, large);
 */
 /*------------------------------------*\
@@ -174,58 +175,196 @@ header, footer, nav, section, article, hgroup, figure {
 /* line 1, scss/base/_main.scss */
 body {
   background: white;
-  font: 100%/1.5 "Bree Serif", Georgia, Times, "Times New Roman", serif;
+  font: 100%/1.5 Georgia, serif;
   -webkit-text-size-adjust: 100%;
   color: #333333;
 }
 
 /* Links */
 /* line 2, scss/base/_links.scss */
-a {
-  color: #333333;
+p a,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  color: #96b60b;
   text-decoration: none;
   outline: 0;
+  position: relative;
+  -webkit-transition: color 0.3s ease-out;
+  -moz-transition: color 0.3s ease-out;
+  -ms-transition: color 0.3s ease-out;
+  -o-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
 }
-/* line 7, scss/base/_links.scss */
-a:hover, a:focus {
-  color: gray;
+/* line 15, scss/base/_links.scss */
+p a:after,
+h1 a:after,
+h2 a:after,
+h3 a:after,
+h4 a:after,
+h5 a:after,
+h6 a:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: transparent;
+  content: '•';
+  text-shadow: 0 0 transparent;
+  font-size: 1rem;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+/* line 28, scss/base/_links.scss */
+p a:hover, p a:focus,
+h1 a:hover,
+h1 a:focus,
+h2 a:hover,
+h2 a:focus,
+h3 a:hover,
+h3 a:focus,
+h4 a:hover,
+h4 a:focus,
+h5 a:hover,
+h5 a:focus,
+h6 a:hover,
+h6 a:focus {
+  color: #aace0c;
+}
+/* line 31, scss/base/_links.scss */
+p a:hover:after, p a:focus:after,
+h1 a:hover:after,
+h1 a:focus:after,
+h2 a:hover:after,
+h2 a:focus:after,
+h3 a:hover:after,
+h3 a:focus:after,
+h4 a:hover:after,
+h4 a:focus:after,
+h5 a:hover:after,
+h5 a:focus:after,
+h6 a:hover:after,
+h6 a:focus:after {
+  color: #96b60b;
+  text-shadow: 10px 0 #aace0c, -10px 0 #aace0c;
 }
 
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 /* line 3, scss/base/_headings.scss */
 h1, .alpha {
-  line-height: 1.2;
+  line-height: 1;
+  font-family: "Roboto Condensed", Helvetica, Arial, serif;
+  font-size: 6rem;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #239392;
+}
+/* line 11, scss/base/_headings.scss */
+h1 a, .alpha a {
+  color: #239392;
+}
+/* line 14, scss/base/_headings.scss */
+h1 a:after, .alpha a:after {
+  top: 80%;
 }
 
-/* line 7, scss/base/_headings.scss */
+/* line 20, scss/base/_headings.scss */
 h2, .beta {
   line-height: 1.2;
+  font-family: "Roboto Condensed", Helvetica, Arial, serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #96b60b;
+}
+/* line 28, scss/base/_headings.scss */
+h2 a, .beta a {
+  color: #96b60b;
+}
+/* line 31, scss/base/_headings.scss */
+h2 a:after, .beta a:after {
+  top: 70%;
 }
 
-/* line 11, scss/base/_headings.scss */
+/* line 37, scss/base/_headings.scss */
 h3, .gamma {
   line-height: 1.2;
+  font-family: "Bree Serif", Times, "Times New Roman", serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #4f4138;
+}
+/* line 44, scss/base/_headings.scss */
+h3 a, .gamma a {
+  color: #4f4138;
+}
+
+/* line 47, scss/base/_headings.scss */
+h4, .delta {
+  font-family: "Bree Serif", Times, "Times New Roman", serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #4f4138;
+}
+/* line 53, scss/base/_headings.scss */
+h4 a, .delta a {
+  color: #4f4138;
+}
+
+/* line 56, scss/base/_headings.scss */
+h5, .epsilon {
+  font-family: "Bree Serif", Times, "Times New Roman", serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #4f4138;
+}
+/* line 62, scss/base/_headings.scss */
+h5 a, .epsilon a {
+  color: #4f4138;
+}
+
+/* line 65, scss/base/_headings.scss */
+h6, .zeta {
+  font-family: "Bree Serif", Times, "Times New Roman", serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  color: #4f4138;
+}
+/* line 71, scss/base/_headings.scss */
+h6 a, .zeta a {
+  color: #4f4138;
 }
 
 /* Subheadings */
-/* line 28, scss/base/_headings.scss */
+/* line 75, scss/base/_headings.scss */
 .subheading {
-  font-family: "Roboto Condensed", Helvetica, Arial, serif;
+  font-family: "Bree Serif", Times, "Times New Roman", serif;
   font-weight: normal;
 }
 
 /* Text-Related Elements */
 /* line 2, scss/base/_text.scss */
 p {
+  font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 
 /* Blockquote */
-/* line 7, scss/base/_text.scss */
+/* line 8, scss/base/_text.scss */
 blockquote {
-  font-style: italic;
-  border-left: 1px solid gray;
+  border-left: 3px solid #96b60b;
   color: gray;
   padding-left: 1rem;
   margin-bottom: 1rem;
@@ -246,6 +385,11 @@ abbr {
   cursor: help;
 }
 
+/* line 28, scss/base/_text.scss */
+li {
+  font-size: 1.25rem;
+}
+
 /* line 1, scss/base/_lists.scss */
 ol, ul {
   margin: 0;
@@ -253,19 +397,65 @@ ol, ul {
   list-style: none;
 }
 
+/* line 11, scss/base/_lists.scss */
+ul:not([class]) > li {
+  list-style: none;
+}
+/* line 14, scss/base/_lists.scss */
+ul:not([class]) > li:before {
+  content: '•';
+  color: #96b60b;
+  display: block;
+  float: left;
+  margin-right: 0.5rem;
+}
+
+/* line 25, scss/base/_lists.scss */
+ol:not([class]) {
+  counter-reset: ol-counter;
+}
+/* line 28, scss/base/_lists.scss */
+ol:not([class]) > li {
+  list-style: none;
+}
+/* line 31, scss/base/_lists.scss */
+ol:not([class]) > li:before {
+  content: counter(ol-counter);
+  counter-increment: ol-counter;
+  color: #FFF;
+  display: block;
+  float: left;
+  margin: 0.25rem 0.5rem 0 0;
+  background-color: #96b60b;
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
 /* Definition Lists */
-/* line 8, scss/base/_lists.scss */
+/* line 50, scss/base/_lists.scss */
 dl {
   overflow: hidden;
   margin: 0 0 1rem;
 }
 
-/* line 13, scss/base/_lists.scss */
+/* line 55, scss/base/_lists.scss */
 dt {
+  font-family: "Bree Serif", Times, "Times New Roman", serif;
   font-weight: bold;
+  color: #4f4138;
+}
+/* line 60, scss/base/_lists.scss */
+dt:before {
+  content: '\00a7';
+  color: #96b60b;
+  margin-right: 0.25rem;
+  font-size: 1.05rem;
 }
 
-/* line 17, scss/base/_lists.scss */
+/* line 68, scss/base/_lists.scss */
 dd {
   margin-left: 0;
 }
@@ -961,31 +1151,27 @@ td {
   font-size: 1.4375em;
 }
 
-/* line 20, scss/objects/_text.scss */
-.text a {
-  text-decoration: underline;
-}
-/* line 24, scss/objects/_text.scss */
+/* line 21, scss/objects/_text.scss */
 .text ul {
   list-style: disc;
   margin: 0 0 1rem 1.2em;
 }
-/* line 28, scss/objects/_text.scss */
+/* line 25, scss/objects/_text.scss */
 .text ul ul {
   margin-bottom: 0;
 }
-/* line 33, scss/objects/_text.scss */
+/* line 30, scss/objects/_text.scss */
 .text ol {
   list-style: decimal;
   margin: 0 0 1rem 1.2em;
 }
-/* line 37, scss/objects/_text.scss */
+/* line 34, scss/objects/_text.scss */
 .text ol ol {
   margin-bottom: 0;
 }
 
 /* Review Grade Tile */
-/* line 44, scss/objects/_text.scss */
+/* line 41, scss/objects/_text.scss */
 .grade {
   display: block;
   font-weight: bold;
@@ -997,7 +1183,7 @@ td {
 }
 
 /* Eyebrow */
-/* line 55, scss/objects/_text.scss */
+/* line 52, scss/objects/_text.scss */
 .eyebrow {
   background: #333333;
   color: white;
@@ -1006,16 +1192,16 @@ td {
   margin-bottom: 0.5rem;
 }
 
-/* line 63, scss/objects/_text.scss */
+/* line 60, scss/objects/_text.scss */
 .eyebrow-image {
   position: relative;
 }
-/* line 66, scss/objects/_text.scss */
+/* line 63, scss/objects/_text.scss */
 .eyebrow-image img {
   position: relative;
   z-index: 0;
 }
-/* line 71, scss/objects/_text.scss */
+/* line 68, scss/objects/_text.scss */
 .eyebrow-image .eyebrow {
   position: absolute;
   top: 0;

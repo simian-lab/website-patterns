@@ -1,31 +1,78 @@
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
-h1, .alpha   { 
-	line-height: 1.2;
+h1, .alpha   {
+	line-height: 1;
+	font-family: $font-secondary;
+	font-size: 6rem;
+	text-transform: uppercase;
+	font-weight: normal;
+	color: $blue;
+
+	a {
+		color: $blue;
+
+		&:after {
+			top: 80%;
+		}
+	}
 }
 
-h2, .beta    { 
+h2, .beta    {
 	line-height: 1.2;
+	font-family: $font-secondary;
+	font-size: 2rem;
+	text-transform: uppercase;
+	font-weight: normal;
+	color: $green;
+
+	a {
+		color: $green;
+
+		&:after {
+			top: 70%;
+		}
+	}
 }
 
-h3, .gamma   { 
+h3, .gamma   {
 	line-height: 1.2;
+	font-family: $font-tertiary;
+	text-transform: uppercase;
+	font-weight: normal;
+	color: $brown;
+
+	a { color: $brown; }
 }
 
 h4, .delta   {
-	
+	font-family: $font-tertiary;
+	text-transform: uppercase;
+	font-weight: normal;
+	color: $brown;
+
+	a { color: $brown; }
 }
 
-h5, .epsilon { 
-	
+h5, .epsilon {
+	font-family: $font-tertiary;
+	text-transform: uppercase;
+	font-weight: normal;
+	color: $brown;
+
+	a { color: $brown; }
 }
 
-h6, .zeta    { 
-	
+h6, .zeta    {
+	font-family: $font-tertiary;
+	text-transform: uppercase;
+	font-weight: normal;
+	color: $brown;
+
+	a { color: $brown; }
 }
 
 /* Subheadings */
 .subheading {
-	font-family: $font-secondary;
+	font-family: $font-tertiary;
 	font-weight: normal;
 }

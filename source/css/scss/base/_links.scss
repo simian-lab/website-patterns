@@ -1,10 +1,36 @@
-/* Links */ 
-a {
-	color: $gray-dark;
+/* Links */
+p a,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+	color: $green;
 	text-decoration: none;
 	outline: 0;
-	
+	position: relative;
+	@include transition(color, 0.3s, ease-out);
+
+	&:after {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		color: transparent;
+		content: '•';
+		text-shadow: 0 0 transparent;
+		font-size: 1rem;
+		@include transition(all, 0.3s, ease-out);
+		@include transform(translateX(-50%));
+		pointer-events: none;
+	}
+
 	&:hover, &:focus {
-		color: $gray;
+		color: lighten($green, 5%);
+
+		&:after {
+			color: $green;
+			text-shadow: 10px 0 lighten($green, 5%), -10px 0 lighten($green, 5%);
+		}
 	}
 }

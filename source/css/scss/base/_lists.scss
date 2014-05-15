@@ -4,6 +4,48 @@ ol, ul {
 	list-style: none;
 }
 
+// The :not([class]) is pretty ingenous, right? this way we set these
+// as default styles for regular uls and ols, and leave the ones with particular
+// classes (such as ul.sg-colors) alone :).
+ul:not([class]) {
+	& > li {
+		list-style: none;
+
+		&:before {
+			content: '•';
+			color: $green;
+			display: block;
+			float: left;
+			margin-right: 0.5rem;
+		}
+	}
+}
+
+// All credits to this one go to: http://codeitdown.com/ordered-list-css-styles/
+ol:not([class]) {
+	counter-reset: ol-counter;
+
+	& > li {
+		list-style: none;
+
+		&:before {
+			content: counter(ol-counter);
+			counter-increment: ol-counter;
+			color: #FFF;
+			display: block;
+			float: left;
+			margin: 0.25rem 0.5rem 0 0;
+			background-color: $green;
+			border-radius: 50%;
+			width: 1.25rem;
+			height: 1.25rem;
+			font-size: 0.75rem;
+			text-align: center;
+		}
+	}
+}
+
+
 /* Definition Lists */
 dl {
 	overflow: hidden;
@@ -11,7 +53,16 @@ dl {
 }
 
 dt {
+	font-family: $font-tertiary;
 	font-weight: bold;
+	color: $brown;
+
+	&:before {
+		content: '\00a7'; // Section sign. I know I'm using it wrong. I don't care.
+		color: $green;
+		margin-right: 0.25rem;
+		font-size: 1.05rem;
+	}
 }
 
 dd {
