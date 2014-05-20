@@ -3,22 +3,33 @@
 \*------------------------------------*/
 .btn {
 	display: inline-block;
-	background: $gray-dark;
-	color: $white;
-	line-height: 1;
-	font-weight: bold;
-	padding: $pad;
-	border: 0;
-	text-align: center;
-	
+  //background: $green;
+  @include background-image(linear-gradient($green, darken($green, 5%)));
+  color: $white;
+  line-height: 1;
+  padding: 0.5rem 1rem;
+  border: 0;
+  font-family: $font-secondary;
+  text-align: center;
+  font-size: 0.85rem;
+  border-radius: 5px;
+  box-shadow: 0 0 3px darken($green, 10%);
+  font-weight: 300;
+  @include transition(box-shadow 0.2s ease-out);
+
 	&:hover, &:focus {
-		color: $white;
+		box-shadow: 0 0 10px 1px $green;
 	}
 
 	&.disabled {
 		background: $gray-light-2;
 		color: $gray-light-4;
+    box-shadow: 0 0 3px darken($gray, 10%);
 	}
+
+  &.alt {
+
+  }
 }
 
 .btn-small {
@@ -31,9 +42,4 @@
 	background: $gray;
 	font-size: 1.4rem;
 	font-weight: normal;
-}
-
-
-.text-btn {
-	font-style: italic;
 }

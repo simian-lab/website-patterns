@@ -72,7 +72,7 @@ input[type=text], input[type=search], input[type=url], input[type=number], texta
 input[type=text], input[type=search], input[type=url], input[type=number],
 input[type=password], input[type=email], textarea {
   border-radius: 5px;
-  @include transition(box-shadow, 0.3s, ease-out);
+  @include transition(box-shadow 0.3s ease-out);
 
   &:focus {
     box-shadow: 0 0 5px 0px $blue;
@@ -81,10 +81,8 @@ input[type=password], input[type=email], textarea {
 }
 
 button, input[type="submit"] {
-	padding: $pad-half;
-	background: $gray-dark;
-	border: 1px solid $gray;
-	cursor: pointer;
+	@extend .btn; // .btn is defined in objects/_buttons.scss
+  width: auto;
 }
 
 input[type="checkbox"],

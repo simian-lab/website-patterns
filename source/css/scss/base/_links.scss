@@ -1,16 +1,20 @@
 /* Links */
-p a,
+
+a {
+	color: $green;
+	text-decoration: none;
+}
+
+p a:not([class]),
 h1 a,
 h2 a,
 h3 a,
 h4 a,
 h5 a,
 h6 a {
-	color: $green;
-	text-decoration: none;
 	outline: 0;
 	position: relative;
-	@include transition(color, 0.3s, ease-out);
+	@include transition(color 0.3s ease-out);
 
 	&:after {
 		position: absolute;
@@ -20,7 +24,7 @@ h6 a {
 		content: '•';
 		text-shadow: 0 0 transparent;
 		font-size: 1rem;
-		@include transition(all, 0.3s, ease-out);
+		@include transition(all 0.3s ease-out);
 		@include transform(translateX(-50%));
 		pointer-events: none;
 	}

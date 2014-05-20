@@ -33,12 +33,6 @@
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
-/* CSS Transition
-	Usage: @include transition(width,0.3s,ease-out);
- */
-/* Rem Unit font sizes with relative fallback http:/seesparkbox.com/foundry/scss_rem_mixin_now_with_a_better_fallback
-	Usage: @include font-size(1, large);
-*/
 /*------------------------------------*\
     $RESET
 \*------------------------------------*/
@@ -181,26 +175,28 @@ body {
 }
 
 /* Links */
-/* line 2, scss/base/_links.scss */
-p a,
+/* line 3, scss/base/_links.scss */
+a {
+  color: #96d60b;
+  text-decoration: none;
+}
+
+/* line 8, scss/base/_links.scss */
+p a:not([class]),
 h1 a,
 h2 a,
 h3 a,
 h4 a,
 h5 a,
 h6 a {
-  color: #96b60b;
-  text-decoration: none;
   outline: 0;
   position: relative;
   -webkit-transition: color 0.3s ease-out;
   -moz-transition: color 0.3s ease-out;
-  -ms-transition: color 0.3s ease-out;
-  -o-transition: color 0.3s ease-out;
   transition: color 0.3s ease-out;
 }
-/* line 15, scss/base/_links.scss */
-p a:after,
+/* line 19, scss/base/_links.scss */
+p a:not([class]):after,
 h1 a:after,
 h2 a:after,
 h3 a:after,
@@ -216,8 +212,6 @@ h6 a:after {
   font-size: 1rem;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
@@ -226,8 +220,8 @@ h6 a:after {
   transform: translateX(-50%);
   pointer-events: none;
 }
-/* line 28, scss/base/_links.scss */
-p a:hover, p a:focus,
+/* line 32, scss/base/_links.scss */
+p a:not([class]):hover, p a:not([class]):focus,
 h1 a:hover,
 h1 a:focus,
 h2 a:hover,
@@ -240,10 +234,10 @@ h5 a:hover,
 h5 a:focus,
 h6 a:hover,
 h6 a:focus {
-  color: #aace0c;
+  color: #a7ee0c;
 }
-/* line 31, scss/base/_links.scss */
-p a:hover:after, p a:focus:after,
+/* line 35, scss/base/_links.scss */
+p a:not([class]):hover:after, p a:not([class]):focus:after,
 h1 a:hover:after,
 h1 a:focus:after,
 h2 a:hover:after,
@@ -256,8 +250,8 @@ h5 a:hover:after,
 h5 a:focus:after,
 h6 a:hover:after,
 h6 a:focus:after {
-  color: #96b60b;
-  text-shadow: 10px 0 #aace0c, -10px 0 #aace0c;
+  color: #96d60b;
+  text-shadow: 10px 0 #a7ee0c, -10px 0 #a7ee0c;
 }
 
 /* Headings */
@@ -287,11 +281,11 @@ h2, .beta {
   font-size: 2rem;
   text-transform: uppercase;
   font-weight: normal;
-  color: #96b60b;
+  color: #96d60b;
 }
 /* line 28, scss/base/_headings.scss */
 h2 a, .beta a {
-  color: #96b60b;
+  color: #96d60b;
 }
 /* line 31, scss/base/_headings.scss */
 h2 a:after, .beta a:after {
@@ -364,7 +358,7 @@ p {
 /* Blockquote */
 /* line 8, scss/base/_text.scss */
 blockquote {
-  border-left: 3px solid #96b60b;
+  border-left: 3px solid #96d60b;
   color: gray;
   padding-left: 1rem;
   margin-bottom: 1rem;
@@ -404,7 +398,7 @@ ul:not([class]) > li {
 /* line 14, scss/base/_lists.scss */
 ul:not([class]) > li:before {
   content: '•';
-  color: #96b60b;
+  color: #96d60b;
   display: block;
   float: left;
   margin-right: 0.5rem;
@@ -426,7 +420,7 @@ ol:not([class]) > li:before {
   display: block;
   float: left;
   margin: 0.25rem 0.5rem 0 0;
-  background-color: #96b60b;
+  background-color: #96d60b;
   border-radius: 50%;
   width: 1.25rem;
   height: 1.25rem;
@@ -450,7 +444,7 @@ dt {
 /* line 60, scss/base/_lists.scss */
 dt:before {
   content: '\00a7';
-  color: #96b60b;
+  color: #96d60b;
   margin-right: 0.25rem;
   font-size: 1.05rem;
 }
@@ -568,8 +562,6 @@ input[type=password], input[type=email], textarea {
   border-radius: 5px;
   -webkit-transition: box-shadow 0.3s ease-out;
   -moz-transition: box-shadow 0.3s ease-out;
-  -ms-transition: box-shadow 0.3s ease-out;
-  -o-transition: box-shadow 0.3s ease-out;
   transition: box-shadow 0.3s ease-out;
 }
 /* line 77, scss/base/_forms.scss */
@@ -581,36 +573,33 @@ input[type=password]:focus, input[type=email]:focus, textarea:focus {
 
 /* line 83, scss/base/_forms.scss */
 button, input[type="submit"] {
-  padding: 0.5rem;
-  background: #333333;
-  border: 1px solid gray;
-  cursor: pointer;
+  width: auto;
 }
 
-/* line 90, scss/base/_forms.scss */
+/* line 88, scss/base/_forms.scss */
 input[type="checkbox"],
 input[type="radio"] {
   width: auto;
   margin-right: 0.3em;
 }
 
-/* line 96, scss/base/_forms.scss */
+/* line 94, scss/base/_forms.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-/* line 102, scss/base/_forms.scss */
+/* line 100, scss/base/_forms.scss */
 .field-container {
   margin-bottom: 1rem;
 }
 
-/* line 108, scss/base/_forms.scss */
+/* line 106, scss/base/_forms.scss */
 .inline-form fieldset, .inline-form .inline-container {
   position: relative;
 }
-/* line 112, scss/base/_forms.scss */
-.inline-form input[type=submit], .inline-form button, .inline-form .btn {
+/* line 110, scss/base/_forms.scss */
+.inline-form input[type=submit], .inline-form button, .inline-form .btn, .inline-form button, .inline-form input[type="submit"] {
   font-size: 0.875em;
   padding: 0.65rem 1.3rem;
   background: #333333;
@@ -620,27 +609,27 @@ input[type="search"]::-webkit-search-decoration {
   z-index: 1;
   width: auto;
 }
-/* line 122, scss/base/_forms.scss */
-.inline-form input[type=submit]:hover, .inline-form input[type=submit]:focus, .inline-form button:hover, .inline-form button:focus, .inline-form .btn:hover, .inline-form .btn:focus {
+/* line 120, scss/base/_forms.scss */
+.inline-form input[type=submit]:hover, .inline-form input[type=submit]:focus, .inline-form button:hover, .inline-form button:focus, .inline-form .btn:hover, .inline-form button:hover, .inline-form input[type="submit"]:hover, .inline-form .btn:focus, .inline-form button:focus, .inline-form input[type="submit"]:focus {
   background: gray;
   color: white;
 }
 
-/* line 130, scss/base/_forms.scss */
+/* line 128, scss/base/_forms.scss */
 .inline-search-results-form {
   width: 100%;
 }
 @media all and (min-width: 46.8em) {
-  /* line 130, scss/base/_forms.scss */
+  /* line 128, scss/base/_forms.scss */
   .inline-search-results-form {
     width: 82%;
   }
 }
-/* line 137, scss/base/_forms.scss */
+/* line 135, scss/base/_forms.scss */
 .inline-search-results-form fieldset, .inline-search-results-form .inline-container {
   position: relative;
 }
-/* line 141, scss/base/_forms.scss */
+/* line 139, scss/base/_forms.scss */
 .inline-search-results-form input[type=submit], .inline-search-results-form button {
   position: absolute;
   top: 0;
@@ -650,17 +639,17 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 /* Validation */
-/* line 151, scss/base/_forms.scss */
+/* line 149, scss/base/_forms.scss */
 .has-error {
   box-shadow: 0 0 5px 0px red;
 }
 
-/* line 154, scss/base/_forms.scss */
+/* line 152, scss/base/_forms.scss */
 .is-valid {
   box-shadow: 0 0 5px 0px #089e00;
 }
 
-/* line 157, scss/base/_forms.scss */
+/* line 155, scss/base/_forms.scss */
 input:invalid, input:-moz-ui-invalid {
   box-shadow: 0 0 5px 0px red;
 }
@@ -669,12 +658,12 @@ input:invalid, input:-moz-ui-invalid {
     $SPECIFIC FORMS
 \*------------------------------------*/
 /* Search Form */
-/* line 166, scss/base/_forms.scss */
+/* line 164, scss/base/_forms.scss */
 .search-field {
   padding-right: 3em;
 }
 
-/* line 169, scss/base/_forms.scss */
+/* line 167, scss/base/_forms.scss */
 .inline-form .search-submit {
   background: none;
   padding: 0.78em 1em;
@@ -711,8 +700,6 @@ td {
 .animate-fade {
   -webkit-transition: opacity 0.3s ease-out;
   -moz-transition: opacity 0.3s ease-out;
-  -ms-transition: opacity 0.3s ease-out;
-  -o-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
 }
 /* line 4, scss/base/_animation.scss */
@@ -724,8 +711,6 @@ td {
 .animate-move > .demo-shape {
   -webkit-transition: all 0.8s ease-in-out;
   -moz-transition: all 0.8s ease-in-out;
-  -ms-transition: all 0.8s ease-in-out;
-  -o-transition: all 0.8s ease-in-out;
   transition: all 0.8s ease-in-out;
 }
 
@@ -1357,43 +1342,47 @@ td {
     $BUTTONS
 \*------------------------------------*/
 /* line 4, scss/objects/_buttons.scss */
-.btn {
+.btn, button, input[type="submit"] {
   display: inline-block;
-  background: #333333;
+  background-image: -webkit-linear-gradient( #96d60b, #85be0a);
+  background-image: linear-gradient( #96d60b, #85be0a);
   color: white;
   line-height: 1;
-  font-weight: bold;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   border: 0;
+  font-family: "Roboto Condensed", Helvetica, Arial, serif;
   text-align: center;
+  font-size: 0.85rem;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #74a509;
+  font-weight: 300;
+  -webkit-transition: box-shadow 0.2s ease-out;
+  -moz-transition: box-shadow 0.2s ease-out;
+  transition: box-shadow 0.2s ease-out;
 }
-/* line 14, scss/objects/_buttons.scss */
-.btn:hover, .btn:focus {
-  color: white;
+/* line 20, scss/objects/_buttons.scss */
+.btn:hover, button:hover, input[type="submit"]:hover, .btn:focus, button:focus, input[type="submit"]:focus {
+  box-shadow: 0 0 10px 1px #96d60b;
 }
-/* line 18, scss/objects/_buttons.scss */
-.btn.disabled {
+/* line 24, scss/objects/_buttons.scss */
+.btn.disabled, button.disabled, input.disabled[type="submit"] {
   background: #eeeeee;
   color: #bbbbbb;
+  box-shadow: 0 0 3px #676767;
 }
 
-/* line 24, scss/objects/_buttons.scss */
+/* line 35, scss/objects/_buttons.scss */
 .btn-small {
   padding: 0.5rem;
 }
 
-/* line 28, scss/objects/_buttons.scss */
+/* line 39, scss/objects/_buttons.scss */
 .btn-large {
   padding: 0.5rem;
   text-transform: uppercase;
   background: gray;
   font-size: 1.4rem;
   font-weight: normal;
-}
-
-/* line 37, scss/objects/_buttons.scss */
-.text-btn {
-  font-style: italic;
 }
 
 /* Generic Placeholder Brick: REMOVE FOR PRODUCTION */
