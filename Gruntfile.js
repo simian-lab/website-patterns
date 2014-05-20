@@ -33,6 +33,7 @@ module.exports = function(grunt) {
 					{ expand: true, cwd: './source/css/', src: 'style.scss', dest: './public/css/' },
 					{ expand: true, cwd: './source/css/', src: 'style.css.map', dest: './public/css/' },
 					{ expand: true, cwd: './source/images/', src: ['*.png', '*.jpg', '*.gif', '*.jpeg', '*.svg'], dest: './public/images/' },
+					{ expand: true, cwd: './source/images/favicons/', src: ['*.png', '*.jpg', '*.gif', '*.jpeg', '*.svg', '*.ico'], dest: './public/images/favicons/' },
 					{ expand: true, cwd: './source/images/sample/', src: ['*.png', '*.jpg', '*.gif', '*.jpeg'], dest: './public/images/sample/'},
 					{ expand: true, cwd: './source/fonts/', src: '*', dest: './public/fonts/'},
 					{ expand: true, cwd: './source/_data/', src: 'annotations.js', dest: './public/data/' }
@@ -73,7 +74,7 @@ module.exports = function(grunt) {
 				},
 				files: {
 					//'./source/css/style.css': './source/css/style.scss',
-					'./public/styleguide/css/static.css': './public/styleguide/css/static.scss',
+					//'./public/styleguide/css/static.css': './public/styleguide/css/static.scss',
 					'./public/styleguide/css/styleguide.css': './public/styleguide/css/styleguide.scss'
 				}
 			}

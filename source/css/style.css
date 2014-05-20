@@ -509,33 +509,77 @@ fieldset {
   padding: 0;
   margin: 0;
 }
-
-/* line 20, scss/base/_forms.scss */
-label {
-  display: block;
-  padding-bottom: 0.25rem;
+/* line 21, scss/base/_forms.scss */
+fieldset.options li:before {
+  content: '' !important;
+}
+/* line 26, scss/base/_forms.scss */
+fieldset.options label {
+  font-family: "Roboto Condensed", Helvetica, Arial, serif;
+  color: #737373;
 }
 
-/* line 25, scss/base/_forms.scss */
+/* line 33, scss/base/_forms.scss */
+label, legend {
+  display: block;
+  padding-bottom: 0.25rem;
+  font-family: "Bree Serif", Times, "Times New Roman", serif;
+  color: #239392;
+}
+/* line 39, scss/base/_forms.scss */
+label .optional, legend .optional {
+  font-size: 0.65rem;
+  vertical-align: middle;
+  font-family: "Roboto Condensed", Helvetica, Arial, serif;
+  color: gray;
+}
+/* line 45, scss/base/_forms.scss */
+label .optional:before, legend .optional:before {
+  content: '( ';
+}
+/* line 49, scss/base/_forms.scss */
+label .optional:after, legend .optional:after {
+  content: ' )';
+}
+
+/* line 55, scss/base/_forms.scss */
 button, input, select, textarea {
-  font-family: inherit;
+  font-family: "Roboto Condensed", Helvetica, Arial, serif;
   font-size: 100%;
   margin: 0;
 }
 
-/* line 31, scss/base/_forms.scss */
-input, textarea {
+/* line 61, scss/base/_forms.scss */
+input:not([type=color]), textarea {
   width: 100%;
-  border: 1px solid gray;
+  border: 1px solid #e6e6e6;
   padding: 0.5rem 0.65rem;
+  color: #737373;
 }
 
-/* line 37, scss/base/_forms.scss */
+/* line 68, scss/base/_forms.scss */
 input[type=text], input[type=search], input[type=url], input[type=number], textarea {
   -webkit-appearance: none;
 }
 
-/* line 41, scss/base/_forms.scss */
+/* line 72, scss/base/_forms.scss */
+input[type=text], input[type=search], input[type=url], input[type=number],
+input[type=password], input[type=email], textarea {
+  border-radius: 5px;
+  -webkit-transition: box-shadow 0.3s ease-out;
+  -moz-transition: box-shadow 0.3s ease-out;
+  -ms-transition: box-shadow 0.3s ease-out;
+  -o-transition: box-shadow 0.3s ease-out;
+  transition: box-shadow 0.3s ease-out;
+}
+/* line 77, scss/base/_forms.scss */
+input[type=text]:focus, input[type=search]:focus, input[type=url]:focus, input[type=number]:focus,
+input[type=password]:focus, input[type=email]:focus, textarea:focus {
+  box-shadow: 0 0 5px 0px #239392;
+  outline: none;
+}
+
+/* line 83, scss/base/_forms.scss */
 button, input[type="submit"] {
   padding: 0.5rem;
   background: #333333;
@@ -543,35 +587,29 @@ button, input[type="submit"] {
   cursor: pointer;
 }
 
-/* line 48, scss/base/_forms.scss */
+/* line 90, scss/base/_forms.scss */
 input[type="checkbox"],
 input[type="radio"] {
   width: auto;
   margin-right: 0.3em;
 }
 
-/* line 54, scss/base/_forms.scss */
-input[type="search"] {
-  -webkit-appearance: none;
-  border-radius: 0;
-}
-
-/* line 59, scss/base/_forms.scss */
+/* line 96, scss/base/_forms.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-/* line 65, scss/base/_forms.scss */
+/* line 102, scss/base/_forms.scss */
 .field-container {
   margin-bottom: 1rem;
 }
 
-/* line 71, scss/base/_forms.scss */
+/* line 108, scss/base/_forms.scss */
 .inline-form fieldset, .inline-form .inline-container {
   position: relative;
 }
-/* line 75, scss/base/_forms.scss */
+/* line 112, scss/base/_forms.scss */
 .inline-form input[type=submit], .inline-form button, .inline-form .btn {
   font-size: 0.875em;
   padding: 0.65rem 1.3rem;
@@ -582,27 +620,27 @@ input[type="search"]::-webkit-search-decoration {
   z-index: 1;
   width: auto;
 }
-/* line 85, scss/base/_forms.scss */
+/* line 122, scss/base/_forms.scss */
 .inline-form input[type=submit]:hover, .inline-form input[type=submit]:focus, .inline-form button:hover, .inline-form button:focus, .inline-form .btn:hover, .inline-form .btn:focus {
   background: gray;
   color: white;
 }
 
-/* line 93, scss/base/_forms.scss */
+/* line 130, scss/base/_forms.scss */
 .inline-search-results-form {
   width: 100%;
 }
 @media all and (min-width: 46.8em) {
-  /* line 93, scss/base/_forms.scss */
+  /* line 130, scss/base/_forms.scss */
   .inline-search-results-form {
     width: 82%;
   }
 }
-/* line 100, scss/base/_forms.scss */
+/* line 137, scss/base/_forms.scss */
 .inline-search-results-form fieldset, .inline-search-results-form .inline-container {
   position: relative;
 }
-/* line 104, scss/base/_forms.scss */
+/* line 141, scss/base/_forms.scss */
 .inline-search-results-form input[type=submit], .inline-search-results-form button {
   position: absolute;
   top: 0;
@@ -612,26 +650,31 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 /* Validation */
-/* line 114, scss/base/_forms.scss */
+/* line 151, scss/base/_forms.scss */
 .has-error {
-  border-color: red;
+  box-shadow: 0 0 5px 0px red;
 }
 
-/* line 117, scss/base/_forms.scss */
+/* line 154, scss/base/_forms.scss */
 .is-valid {
-  border-color: #089e00;
+  box-shadow: 0 0 5px 0px #089e00;
+}
+
+/* line 157, scss/base/_forms.scss */
+input:invalid, input:-moz-ui-invalid {
+  box-shadow: 0 0 5px 0px red;
 }
 
 /*------------------------------------*\
     $SPECIFIC FORMS
 \*------------------------------------*/
 /* Search Form */
-/* line 129, scss/base/_forms.scss */
+/* line 166, scss/base/_forms.scss */
 .search-field {
   padding-right: 3em;
 }
 
-/* line 132, scss/base/_forms.scss */
+/* line 169, scss/base/_forms.scss */
 .inline-form .search-submit {
   background: none;
   padding: 0.78em 1em;
@@ -1212,173 +1255,102 @@ td {
 /*------------------------------------*\
     $COMPONENTS
 \*------------------------------------*/
-/* Icon Font */
 @font-face {
-  font-family: 'icons';
-  src: url("../fonts/icons.eot");
-  src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons.woff") format("woff"), url("../fonts/icons.ttf") format("truetype"), url("../fonts/icons.svg#icons") format("svg");
+  font-family: 'simian';
+  src: url("../fonts/simian.eot?uaiblf");
+  src: url("../fonts/simian.eot?#iefixuaiblf") format("embedded-opentype"), url("../fonts/simian.woff?uaiblf") format("woff"), url("../fonts/simian.ttf?uaiblf") format("truetype"), url("../fonts/simian.svg?uaiblf#simian") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
-/* Use the following CSS code if you want to use data attributes for inserting your icons */
-/* line 15, scss/objects/_icons.scss */
-[data-icon]:before {
-  font-family: 'icons';
-  content: attr(data-icon);
-  speak: none;
-  font-weight: normal;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* line 24, scss/objects/_icons.scss */
-.icon-twitter:before, .icon-stumbleupon:before, .icon-pinterest:before, .icon-linkedin:before, .icon-google-plus:before, .icon-search:before, .icon-play:before, .icon-menu:before, .icon-arrow-left:before, .icon-arrow-right:before, .icon-bubble:before, .icon-facebook:before, .icon-feed:before, .icon-youtube:before, .icon-tag:before, .icon-tumblr:before, .icon-instagram, .icon-podcast, .icon-apple, .icon-android, .icon-arrow:after, .icon-envelope:before {
-  font-family: 'icons';
+/* line 12, scss/objects/_icons.scss */
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'simian';
   speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 34, scss/objects/_icons.scss */
+/* line 26, scss/objects/_icons.scss */
+.icon-location:before {
+  content: "\e602";
+}
+
+/* line 29, scss/objects/_icons.scss */
+.icon-group:before {
+  content: "\e603";
+}
+
+/* line 32, scss/objects/_icons.scss */
+.icon-mail:before {
+  content: "\e600";
+}
+
+/* line 35, scss/objects/_icons.scss */
+.icon-tools:before {
+  content: "\e609";
+}
+
+/* line 38, scss/objects/_icons.scss */
+.icon-rocket:before {
+  content: "\e60a";
+}
+
+/* line 41, scss/objects/_icons.scss */
+.icon-earth:before {
+  content: "\e604";
+}
+
+/* line 44, scss/objects/_icons.scss */
+.icon-keyboard:before {
+  content: "\e60b";
+}
+
+/* line 47, scss/objects/_icons.scss */
+.icon-pie:before {
+  content: "\e60c";
+}
+
+/* line 50, scss/objects/_icons.scss */
+.icon-plus:before {
+  content: "\e601";
+}
+
+/* line 53, scss/objects/_icons.scss */
+.icon-list:before {
+  content: "\e606";
+}
+
+/* line 56, scss/objects/_icons.scss */
+.icon-github:before {
+  content: "\e605";
+}
+
+/* line 59, scss/objects/_icons.scss */
 .icon-twitter:before {
-  content: "\74";
+  content: "\e607";
 }
 
-/* line 37, scss/objects/_icons.scss */
-.icon-stumbleupon:before {
-  content: "\75";
-}
-
-/* line 40, scss/objects/_icons.scss */
-.icon-pinterest:before {
-  content: "\70";
-}
-
-/* line 43, scss/objects/_icons.scss */
-.icon-linkedin:before {
-  content: "\69";
-}
-
-/* line 46, scss/objects/_icons.scss */
-.icon-google-plus:before {
-  content: "\67";
-}
-
-/* line 49, scss/objects/_icons.scss */
-.icon-search:before {
-  content: "\73";
-}
-
-/* line 52, scss/objects/_icons.scss */
-.icon-play:before {
-  content: "\61";
-}
-
-/* line 55, scss/objects/_icons.scss */
-.icon-menu:before {
-  content: "\21";
-}
-
-/* line 58, scss/objects/_icons.scss */
-.icon-arrow-left:before {
-  content: "\23";
-}
-
-/* line 61, scss/objects/_icons.scss */
-.icon-arrow-right:before {
-  content: "\24";
-}
-
-/* line 64, scss/objects/_icons.scss */
-.icon-bubble:before {
-  content: "\25";
-}
-
-/* line 67, scss/objects/_icons.scss */
+/* line 62, scss/objects/_icons.scss */
 .icon-facebook:before {
-  content: "\66";
+  content: "\e608";
 }
 
-/* line 70, scss/objects/_icons.scss */
-.icon-feed:before {
-  content: "\27";
+/* line 65, scss/objects/_icons.scss */
+.icon-googleplus:before {
+  content: "\e60d";
 }
 
-/* line 73, scss/objects/_icons.scss */
-.icon-youtube:before {
-  content: "\79";
-}
-
-/* line 76, scss/objects/_icons.scss */
-.icon-tag:before {
-  content: "\28";
-}
-
-/* line 79, scss/objects/_icons.scss */
-.icon-tumblr:before {
-  content: "\6d";
-}
-
-/* line 82, scss/objects/_icons.scss */
-.icon-instagram:before {
-  content: "\22";
-}
-
-/* line 85, scss/objects/_icons.scss */
-.icon-podcast:before {
-  content: "\26";
-}
-
-/* line 88, scss/objects/_icons.scss */
-.icon-android:before {
-  content: "\29";
-}
-
-/* line 91, scss/objects/_icons.scss */
-.icon-apple:before {
-  content: "\2a";
-}
-
-/* line 94, scss/objects/_icons.scss */
-.icon-envelope:before {
-  content: "\2b";
-}
-
-/* line 99, scss/objects/_icons.scss */
-.icon-arrow:after {
-  content: "\61";
+/* line 71, scss/objects/_icons.scss */
+.ms-tile {
+  background: #00ABA9;
   display: inline-block;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-
-/* line 109, scss/objects/_icons.scss */
-.icon-play:before {
-  font-size: 0.7rem;
-  padding-left: 0.2em;
-}
-
-/* line 114, scss/objects/_icons.scss */
-.icon-play-box {
-  display: block;
-  margin-left: 2rem;
-}
-
-/* line 119, scss/objects/_icons.scss */
-.icon-play-box:before {
-  padding: 0.25rem;
-  background: gray;
-  color: white;
-  margin-left: -1.7rem;
-  margin-right: 0.5rem;
 }
 
 /*------------------------------------*\
