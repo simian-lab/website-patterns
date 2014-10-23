@@ -8,18 +8,8 @@ node_js:
 before_install:
   - phantomjs --version
 
-env:
-  global:
-    - APP_NAME=simian-patterns
-
-script:
-  - mocha
-
 before_script:
   - npm install -g grunt-cli
-
-after_success:
-  - git push -f git@heroku.com:$APP_NAME.git $BRANCH:master
 
 branches:
   only:
