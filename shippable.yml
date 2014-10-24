@@ -8,7 +8,6 @@ env:
     - APP_NAME=simian-patterns
 
 script:
-  - ./builder/lib/patternlab.js
   - mocha
 
 before_script:
