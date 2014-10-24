@@ -102,5 +102,5 @@ module.exports = function(grunt) {
 	//travis CI task
 	grunt.registerTask('travis', ['clean', 'concat', 'patternlab', /*'sass',*/ 'copy', 'qunit'])
 
-	grunt.registerTask('heroku', ['travis']);
+	grunt.registerTask('heroku', ['clean', 'concat', 'patternlab', 'copy']);
 };
